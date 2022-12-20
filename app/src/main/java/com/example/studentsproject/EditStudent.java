@@ -15,6 +15,7 @@ import com.example.studentsproject.models.Student;
 public class EditStudent extends AppCompatActivity {
 
     Student student;
+    int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class EditStudent extends AppCompatActivity {
 
         if (extras != null) {
             student = (Student) extras.get("student");
+            pos = extras.getInt("pos");
         }
 
         createButtonsListeners();
@@ -49,23 +51,20 @@ public class EditStudent extends AppCompatActivity {
     }
 
     private void deleteStudent() {
-        Model.instance().deleteStudent(student);
+        Model.instance().deleteStudent(pos);
         Intent intent = new Intent(this, StudentsList.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
     private void updateStudent() {
-        int pos = Model.instance().getAllStudents().indexOf(student);
         student.setId(((EditText) findViewById(R.id.edit_edit_id)).getText().toString());
         student.setName(((EditText) findViewById(R.id.edit_edit_name)).getText().toString());
         student.setPhoneNumber(((EditText) findViewById(R.id.edit_edit_phone)).getText().toString());
         student.setAddress(((EditText) findViewById(R.id.edit_edit_address)).getText().toString());
         student.setChecked(((CheckBox) findViewById(R.id.edit_student_checkbox)).isChecked());
-//        Model.instance().getAllStudents().set(pos, student);
+        Model.instance().getAllStudents().set(pos, student);
         finish();
         Intent intent = new Intent(this, StudentsList.class);
-//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }

@@ -12,6 +12,7 @@ import com.example.studentsproject.models.Student;
 public class StudentDetails extends AppCompatActivity {
 
     Student student;
+    int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class StudentDetails extends AppCompatActivity {
 
         if (extras != null) {
             student = (Student) extras.get("student");
+            pos = extras.getInt("pos");
         }
 
         insertTexts();
@@ -32,12 +34,13 @@ public class StudentDetails extends AppCompatActivity {
         findViewById(R.id.details_student_edit_btn).setOnClickListener(view ->
         {
             Intent intent = new Intent(this, EditStudent.class);
-            startActivityWithStudent(intent, student);
+            startActivityWithStudent(intent);
         });
     }
 
-    private void startActivityWithStudent(Intent intent, Student student) {
+    private void startActivityWithStudent(Intent intent) {
         intent.putExtra("student", student);
+        intent.putExtra("pos", pos);
         startActivity(intent);
     }
 

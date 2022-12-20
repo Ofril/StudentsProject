@@ -26,7 +26,7 @@ public class Model {
         data.add(student);
     }
 
-    public void deleteStudent(Student student) {
-        data.remove(student);
+    public void deleteStudent(int pos) {
+        data.remove(pos);
     }
 }

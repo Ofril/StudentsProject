@@ -53,7 +53,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Students
     }
 
     public interface SelectedStudent {
-        void selectedStudent(Student student);
+        void selectedStudent(Student student, int pos);
     }
 
     public class StudentsAdapterVh extends RecyclerView.ViewHolder {
@@ -67,6 +67,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.Students
             name = itemView.findViewById(R.id.name);
             checkBox = itemView.findViewById(R.id.student_check_box);
 
-            itemView.setOnClickListener(view -> selectedStudent.selectedStudent(studentsList.get(getAdapterPosition())));}
+            itemView.setOnClickListener(view -> selectedStudent.selectedStudent(studentsList.get(getAdapterPosition()), getAdapterPosition()));}
     }
 }

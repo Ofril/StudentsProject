@@ -43,13 +43,14 @@ public class StudentsList extends AppCompatActivity implements StudentAdapter.Se
     }
 
     @Override
-    public void selectedStudent(Student student) {
+    public void selectedStudent(Student student, int pos) {
         Intent intent = new Intent(StudentsList.this, StudentDetails.class);
-        startActivityWithStudent(intent, student);
+        startActivityWithStudent(intent, student, pos);
     }
 
-    private void startActivityWithStudent(Intent intent, Student student) {
+    private void startActivityWithStudent(Intent intent, Student student, int pos) {
         intent.putExtra("student", student);
+        intent.putExtra("pos", pos);
         startActivity(intent);
     }
 }
