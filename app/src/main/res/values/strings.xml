@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">StudentsProject</string>
+    <string name="title_activity_edit_student">EditStudent</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="ID">ID</string>
+    <string name="Name">Name</string>
+    <string name="Phone">Phone</string>
+    <string name="Address">Address</string>
+    <string name="Checked">Checked</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Save">Save</string>
+    <string name="Delete">Delete</string>
+    <string name="Edit">Edit</string>
+    <string name="student_image">student_image</string>
+
+</resources>
