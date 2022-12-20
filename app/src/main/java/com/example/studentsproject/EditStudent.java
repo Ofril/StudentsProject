@@ -57,14 +57,18 @@ public class EditStudent extends AppCompatActivity {
     }
 
     private void updateStudent() {
+        updateStudentFields();
+        Model.instance().getAllStudents().set(pos, student);
+        finish();
+        Intent intent = new Intent(this, StudentsList.class);
+        startActivity(intent);
+    }
+
+    private void updateStudentFields() {
         student.setId(((EditText) findViewById(R.id.edit_edit_id)).getText().toString());
         student.setName(((EditText) findViewById(R.id.edit_edit_name)).getText().toString());
         student.setPhoneNumber(((EditText) findViewById(R.id.edit_edit_phone)).getText().toString());
         student.setAddress(((EditText) findViewById(R.id.edit_edit_address)).getText().toString());
         student.setChecked(((CheckBox) findViewById(R.id.edit_student_checkbox)).isChecked());
-        Model.instance().getAllStudents().set(pos, student);
-        finish();
-        Intent intent = new Intent(this, StudentsList.class);
-        startActivity(intent);
     }
 }
